@@ -1,68 +1,70 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@layer components {
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+    /* common css 
+    ---------------------- */
+    body {
+        @apply m-0 p-0 box-border text-black bg-white text-base font-["Roboto",_sans-serif] leading-3
+    }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+    h1 {
+        @apply text-4xl sm:text-5xl text-center font-bold text-white py-3
+    }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+    /* NavBar 
+    ----------------------- */
+    .logo {
+        @apply btn btn-ghost text-xl nav-link px-0 sm:px-4
+    }
+    .nav-container{
+        @apply bg-[#041C34] fixed top-0 w-full md:pb-32 md:border-b-[24px] border-[#F5CC50] z-50 md:z-10 px-2 py-3 md:px-14 xl:px-32
+    }
+    .nav-link {
+        @apply text-white transition-all ease-in-out hover:text-pink-900 duration-300
+    }
+
+
+    /* home page 
+    --------------------- */
+    .home {
+        @apply md:-mt-16 xl:-mt-0 w-full md:h-dvh flex justify-center md:items-center
+    }
+
+    .home-bg {
+        @apply p-2 md:px-10 pt-24 md:pt-20 md:w-[90%] xl:w-4/5 mx-auto md:rounded-[40px] z-20
+    }
+
+    .home-text {
+        @apply text-white font-bold text-center text-sm md:text-lg leading-6
+    }
+    .home-search{
+        @apply pt-20 pb-9 md:w-[80%] mx-auto relative
+    }
+
+    .home-icon-container {
+        @apply bg-white w-fit flex items-center py-5 px-9 gap-5 rounded-tl-3xl rounded-tr-3xl mx-auto text-xs text-gray-400
+    }
+
+    .search-container {
+        @apply input input-bordered flex items-center gap-2 rounded-full py-7 pr-5 pl-10 shadow-[0px_4px_4px_rgba(14,30,37,0.12),_0px_-4px_10px_rgba(14,30,37,0.32)] absolute left-1/2 -translate-x-1/2 w-full cursor-pointer
+    }
+
+    .search-input {
+        @apply grow placeholder:text-gray-600 placeholder:text-xs focus:text-pink-900
+    }
+
+    .search-icon {
+        @apply text-4xl p-2 text-black bg-[#F2C550] rounded-full font-extrabold
+    }
+
+
+
+
 }
