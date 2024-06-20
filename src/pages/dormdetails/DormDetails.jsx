@@ -18,7 +18,14 @@ const DormDetails = () => {
                     <div className='dorm-img w-full  md:w-2/3'>
                         <div className='flex flex-col space-y-5'>
                             <img className='rounded-xl' src={dormImg} alt="" />
-                            <h1 className='text-left text-2xl md:text-4xl'>This is dorm title</h1>
+                            <div className='flex justify-between'>
+                            <h1 className='text-2xl md:text-4xl'>This is dorm title</h1>
+                            <div className='px-3 py-2 dorm-details-name'>
+                                <p>Posted By:</p>
+                                <br />
+                                <p>Jhon Doe</p>
+                            </div>
+                            </div>
                             
                             <div className='flex space-x-2 items-center'>
                             <FiMapPin/>
@@ -57,7 +64,9 @@ const DormDetails = () => {
                                         <h2>Jhone Doe</h2>
                                         <span className='flex space-x-2 items-center'> 
                                             <span className='mt-1'>10</span>
-                                             <SlLike/></span>
+                                             <SlLike className='cursor-pointer'/>
+                                             
+                                             </span>
 
                                         </div>
                                         <p>United State</p>
@@ -84,7 +93,7 @@ const DormDetails = () => {
                                         <h2>Jhone Doe</h2>
                                         <span className='flex space-x-2 items-center'> 
                                             <span className='mt-1'>10</span>
-                                             <SlLike/></span>
+                                             <SlLike className='cursor-pointer'/></span>
 
                                         </div>
                                         <p>United State</p>
