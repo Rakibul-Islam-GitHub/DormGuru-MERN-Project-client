@@ -68,3 +68,44 @@
 
 
 }
+
+
+
+  
+    .login-container{
+        @apply text-white gap-8 absolute left-1/2 -translate-x-1/2 bg-[#0c1d31] shadow-2xl py-20 px-2 md:px-14  lg:px-20 w-full md:w-[85%] lg:w-[80%] xl:w-[70%] mx-auto flex flex-col-reverse md:flex-row items-center z-50
+    }
+    .google-login{
+        @apply flex items-center gap-2 rounded-md border text-[#639832]  border-[#527334] py-2 px-8 text-sm transition-all ease-in-out hover:bg-[#639832] hover:text-white duration-300
+    }
+    .login-left {
+        @apply flex flex-col items-center space-y-4 text-nowrap
+    }
+    .login-form{
+        @apply bg-[#F8F8F8] text-[#545454] px-3 sm:px-10 py-10 md:rounded-10-50 md:rounded-e-none
+    }
+    .login-input{
+        @apply border py-3 px-5 rounded-md focus:outline-none focus:border-red-300 border-gray-400 w-full  my-2
+    }
+    .login-btn{
+        @apply bg-[#dcac30] text-white px-8 border-2 border-[#dcac30] py-2  rounded-full transition-all ease-in-out hover:bg-transparent hover:text-[#dcac30] duration-300 block mt-2 ml-auto text-xs sm:text-sm
+    }
+
+    /* signup page 
+    --------------------- */
+    .signup-form{
+        @apply  md:w-[80%] lg:w-[60%] mx-auto  bg-gray-300 md:rounded-3xl py-9 sm:py-5 px-2 md:px-8 shadow-xl
+    }
+    .sign-up{
+        @apply mt-24 w-full h-svh z-50  bg-white relative pt-10
+    }
+    .signup-btn{
+        @apply bg-[#dcac30] text-white px-8 border-2 border-[#dcac30] py-3  rounded-md transition-all ease-in-out hover:bg-[#ab8627] hover:border-[#ab8627] duration-300 block mt-2 ml-auto text-xs sm:text-sm w-full
+    }
+    .signup-input {
+        @apply border py-3 px-5 rounded-md focus:outline-none focus:border-red-300 border-gray-400 w-full  mt-1
+    }
+    .input-flex{
+        @apply flex flex-col sm:flex-row items-center gap-3
+    }
+

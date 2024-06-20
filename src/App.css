@@ -8,3 +8,23 @@
   background-size: 100% 100%;
 
 }
+
+
+/* sign up page 
+----------------------- */
+.sign-up::after {
+  position: absolute; 
+  content: "";
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #041C34;
+  z-index: -1;
+
+}
+@media (max-width: 768px) {
+  .sign-up::after {
+    background-color: transparent;
+  }
+}

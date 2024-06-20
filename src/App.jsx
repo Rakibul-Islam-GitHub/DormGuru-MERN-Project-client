@@ -9,6 +9,7 @@ import NavBar from "./component/NavBar/NavBar.jsx";
 
 
 const Login = lazy(() => import("./pages/Login.jsx"));
+const SignUp = lazy(() => import("./pages/SignUp.jsx"));
 const Home = lazy(() => import("./pages/Home.jsx"));
 const DormDetails = lazy(() => import("./pages/dormdetails/DormDetails.jsx"));
 
@@ -43,6 +44,7 @@ const App = () => {
             <Route element={<AnonymousRoute />}>
 
               <Route path='/login' element={<Login />} />
+              <Route path='/sign-up' element={<SignUp />} />
 
 
             </Route>
