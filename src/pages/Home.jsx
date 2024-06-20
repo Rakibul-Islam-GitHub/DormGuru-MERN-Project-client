@@ -2,9 +2,15 @@
 import { FiSearch } from "react-icons/fi";
 import accommodation from '../assets/icon/accommodation.png'
 import hostela from '../assets/icon/hostela.png'
+import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
+    const navigate= useNavigate()
+    const handleSearch=()=>{
+        navigate('/alldorm')
+
+    }
     return (
         <div className="home">
             <div className="home-bg">
@@ -28,7 +34,7 @@ const Home = () => {
 
                     <label className="search-container">
                         <input type="text" className="search-input" placeholder="Search by title" autoComplete="off"/>
-                        <FiSearch className="search-icon" />
+                        <FiSearch className="search-icon" onClick={handleSearch}/>
                     </label>
                 </div>
             </div>

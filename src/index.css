@@ -109,3 +109,49 @@
         @apply flex flex-col sm:flex-row items-center gap-3
     }
 
+/* dorm listing */
+.dorm-page{
+    @apply mt-24 w-full h-full z-50  bg-white relative pt-10 pb-24
+}
+
+.dorm-container{
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-9 max-w-6xl mx-auto px-10 xl:px-0
+}
+.item-container{
+    @apply card bg-base-100 shadow-xl
+}
+.rating-container{
+    @apply absolute flex items-center justify-between w-full bottom-0 p-4
+}
+.rating-style{
+    @apply mask mask-star-2 h-4 w-4 bg-[#F9B90F]
+}
+.rating-number{
+    @apply bg-[#18458B] text-white w-fit p-2 border-4 border-[#ffffff1a] rounded-lg rounded-es-none text-xs
+}
+.dorm-title{
+    @apply border-b border-[#999] pb-4 border-dotted
+}
+.title{
+    @apply text-[#46A5DC] text-lg font-semibold
+}
+.location{
+    @apply flex items-center gap-1 text-[#999] text-sm justify-start
+}
+.dorm-text{
+    @apply border-b border-[#999] pb-4 border-dotted text-[#706f6f]
+}
+.icon-p {
+    @apply text-[#ADC7DD] text-lg transition-all ease-in-out hover:text-[#34628a] duration-300
+}
+.icon-c{
+    @apply flex items-center gap-3
+}
+.bookmark {
+    @apply card-actions justify-end pt-2
+}
+.icon-b{
+    @apply text-[#706e6e] text-xl transition-all ease-in-out hover:text-[#63a8e4]
+}
+
+

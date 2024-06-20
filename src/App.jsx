@@ -12,6 +12,7 @@ const Login = lazy(() => import("./pages/Login.jsx"));
 const SignUp = lazy(() => import("./pages/SignUp.jsx"));
 const Home = lazy(() => import("./pages/Home.jsx"));
 const DormDetails = lazy(() => import("./pages/dormdetails/DormDetails.jsx"));
+const DormListing = lazy(() => import("./pages/dorm-listing/DormListing.jsx"));
 
 const App = () => {
 
@@ -51,6 +52,7 @@ const App = () => {
 
             <Route path='/' element={<Home />} />
             <Route path='/dorm/:id' element={<DormDetails />} />
+            <Route path='/alldorm' element={<DormListing />} />
 
           </Routes>
         </Suspense>
