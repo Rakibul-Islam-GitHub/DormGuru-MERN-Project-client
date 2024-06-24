@@ -2,9 +2,12 @@ import { useContext } from "react";
 import { AuthContext } from "../ContextProvider/AuthProvider";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { registration } from "../store/slices/auth-slice";
 
 
 function SignUp() {
+    const dispatch = useDispatch()
     const { signUp, getName} = useContext(AuthContext)
     const navigate = useNavigate();
 
@@ -15,53 +18,29 @@ function SignUp() {
         const LName = form.lname.value;
         const email = form.email.value;
         const password = form.password.value;
-        const url = form.photo.value;
         const dob = form.dob.value;
         const country = form.country.value;
+        const profilePic = form.profilePic.value;
+        const userName = form.userName.value;
 
         const info = {
-            FirstName: fName,
-            LastName: LName,
-            Email: email,
-            Password: password,
-            Photo_Url: url,
-            Date_Of_Birth: dob,
-            Country: country
+            firstName: fName,
+            lastName: LName,
+            userName : userName,
+            profilePic : profilePic,
+            email: email,
+            password: password,
+            dob: dob,
+            country: country
         }
-        console.log(info);
+ 
+        if(info.firstName && info.lastName && info.userName && info.profilePic && info.email && info.password && info.dob && info.country){
+            dispatch(registration({info, navigate}))
+        }
 
-        // firebase signup 
-        signUp(email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
+    
 
-                console.log(user);
-                if (user) {
-                    Swal.fire({
-                        title: 'success!',
-                        text: 'Acount created successfully',
-                        icon: 'success',
-                        confirmButtonText: 'ok'
-                    })
-                }
-
-                // update user name
-                getName(fName)
-
-                navigate("/")
-
-            })
-            .catch((error) => {
-                console.log(error.message);
-
-            });
-
-        
     }
-
-
-
-
 
     return (
         <div className="sign-up">
@@ -71,6 +50,7 @@ function SignUp() {
                 {/* Registration form 
                     ------------------------------ */}
                 <form onSubmit={handleSignUp} className="space-y-4 text-xs">
+
                     <div className="input-flex">
                         <div className="w-full">
                             <p>Frist Name :</p>
@@ -81,30 +61,34 @@ function SignUp() {
                             <input type="text" name='lname' className='signup-input' autoComplete='off' placeholder='Last Name' />
                         </div>
                     </div>
-
                     <div className="input-flex">
-                        <div className="w-full">
-                            <p>Email Address :</p>
-                            <input type="email" name="email" placeholder='Email' className='signup-input' autoComplete='off' />
+                    <div className="w-full">
+                            <p>user Name :</p>
+                            <input type="text" name='userName' className='signup-input' autoComplete='off' placeholder='Frist Name' />
                         </div>
                         <div className="w-full">
                             <p>Password :</p>
                             <input type="password" name="password" placeholder='Password' className='signup-input' autoComplete='off' />
                         </div>
                     </div>
-
+                    <div className="input-flex">
                     <div className="w-full">
-                        <p>Photo URL :</p>
-                        <input type="url" name='photo' className='signup-input' autoComplete='off' placeholder='Photo link' />
+                            <p>Email Address :</p>
+                            <input type="email" name="email" placeholder='Email' className='signup-input' autoComplete='off' />
+                        </div>
+                    
+                        <div className="w-full">
+                            <p>Profile Picture :</p>
+                            <input type="text" name='profilePic' className='signup-input' autoComplete='off' placeholder='Last Name' />
+                        </div>
                     </div>
-
                     <div className="input-flex">
                         <div className="w-full">
                             <p>Date of Birth :</p>
                             <input type="date" name="dob" id="" className='signup-input' autoComplete='off' />
                         </div>
                         <div className="w-full">
-                            <p>Select Country :</p>
+                            <p>Birth Country :</p>
                             <input type="text" name="country" id="" placeholder='Select Country' className='signup-input' autoComplete='off' />
                         </div>
                     </div>

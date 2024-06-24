@@ -154,4 +154,20 @@
     @apply text-[#706e6e] text-xl transition-all ease-in-out hover:text-[#63a8e4]
 }
 
+ /*  user Dashbord 
+    ---------------------------- */
+
+    .dashbord-page{
+        @apply mt-24 w-full h-full z-50  bg-white relative pb-24
+    }
+
+
+     /* add item  */
+     .addDOrm-btn{
+        @apply bg-[#ab8627] text-white px-8 border-2 border-[#ab8627] py-3  rounded-md transition-all ease-in-out hover:bg-[#dcac30] hover:border-[#dcac30] duration-300 block mt-2  text-xs sm:text-sm 
+    }
+    .additem-input {
+        @apply  rounded-md focus:outline-none focus:border-red-300 border-gray-300 w-full   mt-2 p-2 block border
+    }
+
 

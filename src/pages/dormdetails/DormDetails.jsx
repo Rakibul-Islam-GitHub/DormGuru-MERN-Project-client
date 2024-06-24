@@ -8,11 +8,25 @@ import { LuMapPin } from "react-icons/lu";
 import { MdNaturePeople } from "react-icons/md";
 import { SlLike } from "react-icons/sl";
 import { BsPatchQuestion } from "react-icons/bs";
+import AddRatingModal from '../../component/AddRatingModal';
+import { useState } from 'react';
 
 const DormDetails = () => {
+    const [modalAdd, setModalAdd]= useState(false)
+    const [modalEdit, setModalEdit]= useState(false)
+    const [modalDelete, setModalDelete]= useState(false)
+    const [tableId, settableId] = useState({})
+    const [tableData, settableData] = useState({})
+     // add modal
+
+     const handleAdd = (id) => {
+    settableId(id)
+        document.getElementById('addRating').showModal()
+        }
+        const toggleAddModal = () => document.getElementById('addRating').close(); 
     return (
         <div className="dormdetails"> 
-            <div className="container mx-auto">
+            <div className="container mx-auto md:px-20">
                 <div className='flex flex-col space-y-10 md:space-y-0 md:flex-row space-x-0 md:space-x-5'>
 
                     <div className='dorm-img w-full  md:w-2/3'>
@@ -109,7 +123,11 @@ const DormDetails = () => {
                                     </div>
 
                                 </div>
+                                <div className='float-right'>
+                                <button className="btn btn-wide mt-6 bg-violet-500 bg-yellow-400 shadow-lg" onClick={() => handleAdd(2)}>Add New Review</button>
 
+                                </div>
+<AddRatingModal dormId = {tableId} toggle = {toggleAddModal}/>
                             </div>
 
                             <div className='qna-section pt-10 pb-20 space-y-3'>

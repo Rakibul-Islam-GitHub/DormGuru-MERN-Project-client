@@ -1,3 +1,5 @@
+import React, { useState,useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BsWifi2 } from "react-icons/bs"
 import { ImBookmarks, ImSpoonKnife } from "react-icons/im"
 import { IoLocationSharp, IoLogoNoSmoking } from "react-icons/io5"
@@ -8,15 +10,21 @@ import { Link } from "react-router-dom"
 
 
 function DormListing() {
+    const dispatch = useDispatch()
+    const {dormData, status, error} = useSelector((state) => state.dorm);
+    useEffect(() => {
+        let isMounted = true
+       
+          dispatch(fetchDorm())
+        
+        return () => {
+          isMounted = false
+        }
+      }, [dispatch])
     return (
         <div className="dorm-page">
 
-
-
-
-
             <div className="dorm-container">
-
 
                 {/* dorm 1  */}
                 <div className="item-container">

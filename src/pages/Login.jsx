@@ -1,13 +1,13 @@
 
 import { useContext } from 'react';
-import { FcGoogle } from 'react-icons/fc';
 import { PiNavigationArrowFill } from 'react-icons/pi';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../ContextProvider/AuthProvider';
 import Swal from 'sweetalert2';
-
+import { useDispatch } from 'react-redux';
+import { login } from '../store/slices/auth-slice';
 const Login = () => {
-    const { login, googleLogin } = useContext(AuthContext)
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const handleLogin = (e) => {
         e.preventDefault();
@@ -16,51 +16,55 @@ const Login = () => {
         const password = form.password.value;
 
         const info = {
-            Email: email,
-            Password: password
+            email: email,
+            password: password
         }
-        console.log(info);
+if(email && password){
+    dispatch(login({info, navigate}))
+
+}
 
         // firebase login
         // password login
-        login(email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                // console.log(user);
-                navigate("/")
+    //     login(email, password)
+    //         .then((userCredential) => {
+    //             const user = userCredential.user;
+    //             // console.log(user);
+    //             navigate("/")
 
-            })
-            .catch((error) => {
-                console.log(error.message);
-                if (error) {
-                    Swal.fire("Your email or password is invalid! please try again with coreect information");
-                }
-                form.reset()
-            });
+    //         })
+    //         .catch((error) => {
+    //             console.log(error.message);
+    //             if (error) {
+    //                 Swal.fire("Your email or password is invalid! please try again with coreect information");
+    //             }
+    //             form.reset()
+    //         });
 
-    }
+    // }
 
     /// google login 
-    const handleGoogleLogin = () => {
-        googleLogin()
-            .then((result) => {
-                const user = result.user;
-                // console.log(user);
+    // const handleGoogleLogin = () => {
+    //     googleLogin()
+    //         .then((result) => {
+    //             const user = result.user;
+    //             // console.log(user);
 
-                Swal.fire({
-                    title: 'success!',
-                    text: 'A verification email sent to your email acount. Please verify your email!',
-                    icon: 'success',
-                    confirmButtonText: 'ok'
-                })
-                navigate("/")
+    //             Swal.fire({
+    //                 title: 'success!',
+    //                 text: 'A verification email sent to your email acount. Please verify your email!',
+    //                 icon: 'success',
+    //                 confirmButtonText: 'ok'
+    //             })
+    //             navigate("/")
 
 
-            }).catch((error) => {
-                console.log(error.message);
-                // ...
-            });
-    }
+    //         }).catch((error) => {
+    //             console.log(error.message);
+    //             // ...
+    //         });
+    // }
+}
     return (
         <div className="w-full  pt-40">
 
@@ -68,10 +72,7 @@ const Login = () => {
                 {/* left-side  */}
                 <div className="login-left pl-12">
                     <PiNavigationArrowFill className='text-8xl rotate-[225deg]' />
-                    {/* <div onClick={handleGoogleLogin} className="google-login">
-                        <FcGoogle className='text-2xl' />
-                        <span>Login with Google</span>
-                    </div> */}
+
                     <p className='text-xs pt-9'>Don&apos;t have any acound? <Link className='toggle-link' to="/sign-up">Sing Up</Link></p>
                 </div>
 
@@ -82,7 +83,7 @@ const Login = () => {
                     {/* login form 
                     ------------------- */}
                     <form onSubmit={handleLogin}>
-                        <input type="email" name="email" id="" placeholder='your email' className='login-input' autoComplete='off' />
+                        <input type="email" name="email" id="" placeholder='Your email' className='login-input' autoComplete='off' />
 
                         <input type="password" name="password" id="" placeholder='your password' className='login-input' autoComplete='off' />
 

@@ -2,6 +2,9 @@
 
 /* Home Page 
 ---------------------- */
+body{
+  overflow-x: hidden;
+}
 .home-bg {
   background-image:  linear-gradient(rgb(105, 121, 144, 0.4), rgb(105, 121, 144, 0.3)), url("./assets/bg/homeBg.jpeg");
   background-repeat: no-repeat;
